@@ -1,0 +1,21 @@
+# Maintainer: Sean Yeh <snoblo at archlinux dot us>
+pkgname=otf-figured-bass-mh
+_pkgname=FiguredBassMHGPL
+pkgver=1.0
+pkgrel=1
+pkgdesc="A figured bass musical notation font by Matthew Hindson."
+arch=('any')
+url="http://hindson.com.au/info/free/free-fonts-available-for-download/"
+license=('custom:OFL')
+depends=('fontconfig' 'xorg-font-utils')
+install=otf-figured-bass-mh.install
+source=("http://www.hindson.com.au/fonts/FiguredBassMHGPL.zip")
+md5sums=('aeb089463bf9f6ffe1575f8bf7c5341c')
+
+package() {
+  cd "$srcdir"
+  mkdir -p "${pkgdir}/usr/share/fonts/OTF"
+  install -m644 "${_pkgname}.otf" "${pkgdir}/usr/share/fonts/OTF/"
+  install -Dm644 "${_pkgname}ReadMe.pdf" "${pkgdir}/usr/share/doc/${pkgname}/${_pkgname}ReadMe.pdf"
+}
+
