@@ -1,0 +1,19 @@
+# Maintainer: Sean Yeh <snoblo at archlinux dot us>
+
+_pkgname=pyqtdeploy
+pkgname=python-${_pkgname}
+pkgver=1.3.1
+pkgrel=1
+pkgdesc="PyQt Application Deployment Tool"
+arch=(any)
+url="http://pypi.python.org/pypi/${_pkgname}"
+license=(BSD)
+depends=(python python-pyqt5)
+source=("https://pypi.python.org/packages/69/3f/f81b50b150ced82099ff18016d32050698eb0c12562583f11dc8d74e8be4/${_pkgname}-${pkgver}.tar.gz")
+md5sums=(f27b1b76f19e5df44119f24f037cfdbf)
+
+package() {
+    cd "${srcdir}/${_pkgname}-${pkgver}"
+    python setup.py install --root="${pkgdir}/" --optimize=1
+}
+
