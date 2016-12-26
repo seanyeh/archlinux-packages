@@ -1,0 +1,29 @@
+# Maintainer: Sean Yeh <snoblo at archlinux dot us>
+
+_pkgname=splinter
+pkgname=python-${_pkgname}
+pkgver=0.7.5
+pkgrel=1
+pkgdesc="Python tool for test web applications"
+arch=(any)
+url="http://pypi.python.org/pypi/${_pkgname}"
+license=("unknown")
+depends=("python>=3.3" "python-selenium")
+makedepends=("python-setuptools")
+optdepends=("chromedriver: Chrome WebDriver"
+            "geckodriver: Firefox WebDriver"
+            "phantomjs: Phantomjs WebDriver"
+            "zope.testbrowser: zope.testbrowser"
+            "python-django: django client"
+            "python-flask: flask client"
+            "python-lxml: for zope.testbrowser, django, flask"
+            "python-cssselect: for zope.testbrowser, django, flask")
+
+source=("https://pypi.python.org/packages/18/84/6327acf97b2581000ef92eefa06e94b1013bb7e4425ff1f3217773cdccd3/${_pkgname}-${pkgver}.tar.gz")
+md5sums=(a9e843c5c9b9b6bb4d855a7d07cd581b)
+
+package() {
+    cd "${srcdir}/${_pkgname}-${pkgver}"
+    python setup.py install --root="${pkgdir}/" --optimize=1
+}
+
