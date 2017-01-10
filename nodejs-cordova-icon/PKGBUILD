@@ -1,0 +1,23 @@
+# Maintainer: Sean Yeh <snoblo at archlinux dot us>
+
+_npmname=cordova-icon
+pkgname=nodejs-${_npmname}
+pkgver=0.9.1
+pkgrel=1
+pkgdesc="Automatic icon resizing for Cordova"
+arch=(any)
+url="https://github.com/AlexDisler/cordova-icon"
+license=(MIT)
+depends=("nodejs" "npm" "imagemagick")
+optdepends=()
+source=(http://registry.npmjs.org/$_npmname/-/$_npmname-$pkgver.tgz)
+noextract=($_npmname-$pkgver.tgz)
+sha1sums=(6bfd6313b37b3ce30e45b07a4f48abe13a406d34)
+
+package() {
+  cd $srcdir
+  local _npmdir="$pkgdir/usr/lib/node_modules/"
+  mkdir -p $_npmdir
+  cd $_npmdir
+  npm install -g --prefix "$pkgdir/usr" $_npmname@$pkgver
+}
