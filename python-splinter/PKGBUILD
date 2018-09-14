@@ -2,7 +2,7 @@
 
 _pkgname=splinter
 pkgname=python-${_pkgname}
-pkgver=0.7.5
+pkgver=0.9.0
 pkgrel=1
 pkgdesc="Python tool for test web applications"
 arch=(any)
@@ -19,8 +19,8 @@ optdepends=("chromedriver: Chrome WebDriver"
             "python-lxml: for zope.testbrowser, django, flask"
             "python-cssselect: for zope.testbrowser, django, flask")
 
-source=("https://pypi.python.org/packages/18/84/6327acf97b2581000ef92eefa06e94b1013bb7e4425ff1f3217773cdccd3/${_pkgname}-${pkgver}.tar.gz")
-md5sums=(a9e843c5c9b9b6bb4d855a7d07cd581b)
+source=("https://pypi.python.org/packages/84/c3/92bc03fb0e9314c5d08398527464cf1dc3379464982912e5d17c7b8d46e3/${_pkgname}-${pkgver}.tar.gz")
+sha256sums=(08c6ed2209ce0520c2f898ad30822ba8f52ed9226bda10c0253c5ea9fe418146)
 
 package() {
     cd "${srcdir}/${_pkgname}-${pkgver}"
